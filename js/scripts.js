@@ -1,20 +1,14 @@
-var vidNames = [
-	"STAY - Justin Bieber",
-	"Jiggle Jiggle - Jason Derulo x Duke x Louis Theroux x Amelia Dimz",
-	"Bad Habits - Ed Sheeran",
-	"Born To Do - Steven Cooper",
-	"Been Through - EXO",
-	"Despacito - Luis Fonsi x Daddy Yankee x Justin Bieber",
-	"Bad Guy - Billie Eilish",
-	"Still D.R.E. - Dr. Dre x Snoop Dogg",
-	"Enemy - Imagine Dragons x J.I.D",
-	"Believer - Imagine Dragons",
-	"Thunder - Imagine Dragons",
-	"Mood - 24kGoldn",
-	"Drake - Hotline Bling",
-	"A$AP Ferg - Plain Jane REMIX (Official Audio) ft. Nicki Minaj",
-	"The Chainsmokers - Don't Let Me Down (Official Video) ft. Daya"
-]
+var vidNames = [];
+
+// 從 JSON 檔案讀取影片名稱列表
+$.getJSON("./vids/vid_names.json", function(data) {
+    vidNames = data;
+    
+    // 隨機選擇一個影片索引
+    vidNum = Math.floor(Math.random() * vidNames.length);
+
+    refresh();  // 在這裡調用 refresh，確保 vidNames 已經更新
+});
 
 var playMy = true
 
